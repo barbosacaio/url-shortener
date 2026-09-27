@@ -51,6 +51,11 @@ I'll use an HTTP client to check these cases and add reproducible commands or ex
 ## Running the project
 
 > I'll add prerequisites, dependency installation, database setup, and the command to start the API once they're defined.
+1. ``git clone https://github.com/barbosacaio/url-shortener``
+2. ``cd url-shortener``
+3. For macOS/Linux: ``python3 -m venv .venv`` — For Windows: ``py -3 -m venv .venv``
+4. For macOS/Linux: ``. .venv/bin/activate`` — For Windows: ``.venv/Scripts/activate``
+5. flask --app main run
 
 ## Usage examples
 
