@@ -54,8 +54,9 @@ I'll use an HTTP client to check these cases and add reproducible commands or ex
 1. ``git clone https://github.com/barbosacaio/url-shortener``
 2. ``cd url-shortener``
 3. For macOS/Linux: ``python3 -m venv .venv`` — For Windows: ``py -3 -m venv .venv``
-4. For macOS/Linux: ``. .venv/bin/activate`` — For Windows: ``.venv/Scripts/activate``
-5. flask --app main run
+4. For macOS/Linux: ``. .venv/bin/activate`` — For Windows: ``.venv\Scripts\activate``
+5. pip install Flask
+6. flask --app app run
 
 ## Usage examples
 
