@@ -16,7 +16,7 @@ I'm building an API that accepts an original URL, creates a short code, and uses
 
 ## Core requirements
 
-- [ ] `POST /urls` accepts a valid original URL and creates a short code associated with it.
+- [x] `POST /urls` accepts a valid original URL and creates a short code associated with it.
 - [ ] `GET /:code` finds the original URL and responds with an HTTP redirect.
 - [ ] Invalid URLs are rejected with a clear error response.
 - [ ] Saved links remain available after the application restarts.
@@ -56,7 +56,7 @@ I'll use an HTTP client to check these cases and add reproducible commands or ex
 3. For macOS/Linux: ``python3 -m venv .venv`` — For Windows: ``py -3 -m venv .venv``
 4. For macOS/Linux: ``. .venv/bin/activate`` — For Windows: ``.venv\Scripts\activate``
 5. pip install Flask
-6. flask --app app run
+6. flask --app app/app run
 
 ## Usage examples
 
