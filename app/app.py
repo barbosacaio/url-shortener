@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, redirect, request
 from app.api.shortener import shorten_url, expand_url
 
 app = Flask(__name__)
@@ -18,3 +18,11 @@ def urls():
         'shortened_url': f'{base_url}{shortened_url}',
         'expanded_url': expanded_url
     }
+
+@app.route('/<shortened_url>', methods=['GET'])
+def redirect_to_original(shortened_url):
+    expanded_url = expand_url(shortened_url)
+    if expanded_url:
+        return redirect(expanded_url, code=302)
+    else:
+        return '<p>Invalid shortened URL</p>', 404
