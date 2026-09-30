@@ -10,17 +10,11 @@ def hello_world():
 
 @app.route('/urls', methods=['POST'])
 def urls():
-    base_url = request.host_url
     url = request.args.get('url', '')
 
     if validators.url(url):
         shortened_url = shorten_url(url)
-        expanded_url = expand_url(shortened_url)
-        return {
-            'original_url': url,
-            'shortened_url': f'{base_url}{shortened_url}',
-            'expanded_url': expanded_url
-        }
+        return shortened_url
     else:
         return '<p>Invalid URL</p>', 400
 
