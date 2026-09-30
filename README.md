@@ -18,7 +18,7 @@ I'm building an API that accepts an original URL, creates a short code, and uses
 
 - [x] `POST /urls` accepts a valid original URL and creates a short code associated with it.
 - [x] `GET /:code` finds the original URL and responds with an HTTP redirect.
-- [ ] Invalid URLs are rejected with a clear error response.
+- [x] Invalid URLs are rejected with a clear error response.
 - [ ] Saved links remain available after the application restarts.
 - [ ] Each code identifies at most one URL; creating new links must preserve this rule.
 
