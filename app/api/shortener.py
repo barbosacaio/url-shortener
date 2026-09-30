@@ -19,8 +19,6 @@ def shorten_url(url: str) -> str:
 
 def expand_url(shortened_url: str) -> str:
     try:
-        expanded = base64.urlsafe_b64decode(shortened_url).decode('utf-8')
-
         conn = sqlite3.connect('app/database/urls.db')
         cursor = conn.cursor()
         cursor.execute('SELECT expanded_url FROM urls WHERE shortened_url = ?', (shortened_url,))
@@ -31,5 +29,5 @@ def expand_url(shortened_url: str) -> str:
             return result[0]
         else:
             return 'Not found', 404
-    except Exception:
-        return None
+    except Exception as error:
+        return f'Error expanding URL: {error}', 500

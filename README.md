@@ -20,7 +20,7 @@ I'm building an API that accepts an original URL, creates a short code, and uses
 - [x] `GET /:code` finds the original URL and responds with an HTTP redirect.
 - [x] Invalid URLs are rejected with a clear error response.
 - [x] Saved links remain available after the application restarts.
-- [ ] Each code identifies at most one URL; creating new links must preserve this rule.
+- [x] Each code identifies at most one URL; creating new links must preserve this rule.
 
 I'll define and document the JSON request and response formats for `POST /urls`, the HTTP status codes, and the behavior for an unknown code. I'll choose a response format and use it consistently throughout the API.
 
@@ -49,8 +49,9 @@ I'll use an HTTP client to check these cases and add reproducible commands or ex
 
 ## Usage examples
 
-> I'll add real request and response examples for the endpoints I implement.
+- ```GET http://127.0.0.1:5000/<shortened_url>``` — Expands the generated code and does a 302 redirect to the original URL
+- ```POST http://127.0.0.1:5000/urls?url=<url>``` — Shortens the provided URL, assigns it's code and returns the new code
 
 ## Decisions and lessons learned
 
-> I'll explain how I validate URLs, generate codes, prevent conflicts, and persist data. I'll also record difficulties, known limitations, and what I'd do differently in a future version.
+I opted for a direct URL validation using ```validators``` to simplify the process, with a direct ```UNIQUE``` constraint at the database-level to avoid conflicts while providing data persistance. Main difficulty was to simplify the conversion from URL to shortened code while keeping code simplicity. I moved forward with ```encode()``` and ```decode()``` using ```utf-8``` with ```ASCII``` for byte to string conversion, but I would focus on code simplicity in a future version.

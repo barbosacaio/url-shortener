@@ -1,4 +1,4 @@
-from flask import Flask, redirect, request
+from flask import Flask, request, redirect
 from app.api.shortener import shorten_url, expand_url
 import validators
 
@@ -21,7 +21,4 @@ def urls():
 @app.route('/<shortened_url>', methods=['GET'])
 def redirect_to_original(shortened_url):
     expanded_url = expand_url(shortened_url)
-    if expanded_url:
-        return redirect(expanded_url, code=302)
-    else:
-        return '<p>Invalid shortened URL</p>', 404
+    return redirect(expanded_url, code=302)
